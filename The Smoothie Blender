@@ -1,0 +1,19 @@
+#🍓 The Project: The Smoothie Blender
+
+def make_smoothie(size, *fruits, **options):
+    print(f"Blending a {size} smoothie!")
+
+    print("Ingredients:")
+    for fruit in fruits:
+        print(f"- {fruit}")
+
+    print("Extras: ")
+    extra_1 = options.get('protein',0)
+    extra_2 = options.get('sugar',0)
+
+    if extra_1 == True:
+        print(" -> Adding Protein Powder (+$2.00)")
+    if extra_2 == "none":
+        print(" -> No added sugar.")
+
+make_smoothie("Large", "Strawberry", "Banana", "Mango", protein=True, sugar="none")
