@@ -1,0 +1,58 @@
+#Character Combat & Stamina Simulator
+
+player = "CKJSTAR"
+player_health = 100
+stamina = 50
+
+enemy_name = "Ruinguard"
+enemy_health = 120
+
+print(f"An {enemy_name} appears. Battle start!")
+
+print("")
+
+while player_health > 0 and enemy_health > 0:
+    print(f"{player} turns.")
+    print(f"Player Health: {player_health} | Player Stamina: {stamina}")
+    print(f"Enemy Health: {enemy_health}")
+
+    print("Select an attack: ")
+    print("1. Normal attack (Deals 15 damage, cost 0 stamina)")
+    print("2. Heavy skill (Deals 35 damage, cost 20 stamina)")
+    print("3. Rest (Restore 25 stamina)")
+
+    choice = input("Enter attack number(1, 2, 3): ")
+
+    if choice == "1":
+        print(f"You attack the {enemy_name}, dealing 15 damage!")
+        enemy_health -= 15
+
+    elif choice == "2":
+        if stamina >= 20:
+            print(f"You attack the {enemy_name}, dealing 35 damage!")
+            stamina -= 20
+            enemy_health -= 35
+        else:
+            print("Not enough stamina. You failed to use this attack.")
+
+    elif choice == "3":
+        print("Your restored 25 stamina!")
+        stamina +=25
+
+    else:
+        print("Invalid choice.")
+
+    print("")
+
+    if enemy_health > 0:
+        print(f"{enemy_name} turns.")
+        print(f"{enemy_name} stomps and deals 20 damage to you!")
+        player_health -= 20
+        print("=" * 40)
+
+print("Battle Ended!")
+if player_health > 0:
+    print("You win!")
+
+else:
+    print("Game over.")
